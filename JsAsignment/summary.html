@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <script>
+        var getVal = getValuesFromUrl();
+        setData(getVal);
+
+        function getValuesFromUrl()
+        {
+
+            const urlParams = new URLSearchParams(window.location.search);
+            let queryData = {};
+            queryData.name = urlParams.get('name');
+            queryData.email = urlParams.get('email');
+            queryData.date = urlParams.get('date');
+            queryData.interest = urlParams.get('interest');
+            queryData.isIndividual = urlParams.get('isIndividual');
+            queryData.isOrganization = urlParams.get('isOrganization');
+            queryData.aboutYou = urlParams.get('aboutYou');
+
+            return queryData;
+        }
+        
+        function setData(queryData)
+        {
+            document.getElementById('name').innerHTML = queryData.name;
+            document.getElementById('email').innerHTML = queryData.email;
+            document.getElementById('dob').innerHTML = queryData.date;
+            document.getElementById('interest').innerHTML = queryData.interest;
+            document.getElementById('about').innerHTML = queryData.isIndividual;
+            document.getElementById('about').innerHTML = queryData.isOrganization;
+            document.getElementById('description').innerHTML = queryData.aboutYou;
+        }
+        
+    </script>
+    
+</head>
+<body>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td id="name"></td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td id="email"></td>
+        </tr>
+        <tr>
+            <td>Date of Birth:</td>
+            <td id="dob"></td>
+        </tr>
+        <tr>
+            <td>Interest:</td>
+            <td id="interest"></td>
+        </tr>
+        <tr>
+            <td>About:</td>
+            <td id="about"></td>
+        </tr>
+        <tr>
+            <td>Description:</td>
+            <td id="description"></td>
+        </tr>
+    </table>
+</body>
+</html>
